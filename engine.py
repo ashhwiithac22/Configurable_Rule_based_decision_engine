@@ -2,11 +2,10 @@ import json
 from evaluation import check_condition, check_group
 
 def evaluate_single_input(data, input_id=None, description=None):
-    """Evaluate a single input against all rules"""
     if description:
-        print(f"\n📋 {description}")
+        print(f"\n {description}")
     elif input_id:
-        print(f"\n📋 Test Case #{input_id}")
+        print(f"\n Test Case #{input_id}")
     
     print(f"Input: {data}")
     print("-" * 40)
@@ -37,7 +36,7 @@ def evaluate_single_input(data, input_id=None, description=None):
             else:
                 matched, msg = check_condition(cond, data)
                 results.append({
-                    'text': f"{cond['field']} {cond['op']} {cond['value']}",
+                    'text': f"{cond['field']} {cond['operator']} {cond['value']}",
                     'result': matched,
                     'msg': msg
                 })
@@ -72,8 +71,8 @@ def evaluate_single_input(data, input_id=None, description=None):
                         print(f"{spaces}{status} {r['text']} - {r.get('msg', '')}")
             
             print_results(results)
-            print(f"\nREASONING: Rule matched because {passed} of {total} conditions passed under {rule['logic']} logic")
+            print(f"\nREASON: Rule matched because {passed} of {total} conditions passed under {rule['logic']} logic")
             return
     
     print("DECISION: REJECT")
-    print("No rules matched the input")
+    print("Rules did not match the input")
