@@ -5,7 +5,7 @@
       "description": "High amount, high risk",
       "amount": 75000,
       "risk_score": 0.8,
-      "vendor_type": "New",
+      "vendor_type": "New vendor",
       "country": "US"
     },
     {
@@ -21,7 +21,7 @@
       "description": "Low amount",
       "amount": 1000,
       "risk_score": 0.1,
-      "vendor_type": "New",
+      "vendor_type": "New vendor",
       "country": "US"
     },
     {
@@ -29,12 +29,12 @@
       "description": "High risk country",
       "amount": 30000,
       "risk_score": 0.5,
-      "vendor_type": "New",
+      "vendor_type": "New vendor",
       "country": "Nigeria"
     },
     {
       "id": 5,
-      "description": "Missing risk_score",
+      "description": "Missing risk score",
       "amount": 50000,
       "vendor_type": "New",
       "country": "US"
