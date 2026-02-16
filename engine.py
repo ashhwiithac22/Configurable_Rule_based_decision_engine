@@ -49,11 +49,11 @@ def evaluate_single_input(data, input_id=None, description=None):
                     for sub_r in r['details']:
                         if sub_r['result']:
                             field = sub_r['text'].split()[0]
-                            conditions_met.append(f"{field} condition was satisfied")
+                            conditions_met.append(f"{field} condition satisfied")
                 else:
                     if r['result']:
                         field = r['text'].split()[0]
-                        conditions_met.append(f"{field} condition was satisfied")
+                        conditions_met.append(f"{field} condition satisfied")
             
             if conditions_met:
                 print("This transaction was flagged because:")
