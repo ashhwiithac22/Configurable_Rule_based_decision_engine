@@ -1,6 +1,43 @@
 {
-  "amount": 75000,
-  "risk_score": 0.8,
-  "vendor_type": "New",
-  "country": "US"
+  "inputs": [
+    {
+      "id": 1,
+      "description": "High amount, high risk",
+      "amount": 75000,
+      "risk_score": 0.8,
+      "vendor_type": "New",
+      "country": "US"
+    },
+    {
+      "id": 2,
+      "description": "Trusted vendor",
+      "amount": 100000,
+      "risk_score": 0.2,
+      "vendor_type": "Trusted",
+      "country": "US"
+    },
+    {
+      "id": 3,
+      "description": "Low amount",
+      "amount": 1000,
+      "risk_score": 0.1,
+      "vendor_type": "New",
+      "country": "US"
+    },
+    {
+      "id": 4,
+      "description": "High risk country",
+      "amount": 30000,
+      "risk_score": 0.5,
+      "vendor_type": "New",
+      "country": "Nigeria"
+    },
+    {
+      "id": 5,
+      "description": "Missing risk_score",
+      "amount": 50000,
+      "vendor_type": "New",
+      "country": "US"
+    }
+  ]
 }
