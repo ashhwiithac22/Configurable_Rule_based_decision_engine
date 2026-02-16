@@ -1,4 +1,5 @@
-# Configurable Rule Based Decision Engine
+# Configurable Rule Based Decision Engine 
+## Developed as part of Intellifer Technical Coding Assessment.
 
 A simple configurable rule-based decision engine built using Python and JSON. It evaluates input records against external rules and produces a decision with clear explainability.
 
@@ -136,6 +137,7 @@ The engine validates the following:
 - Wrong data types
 - Invalid JSON files
 --- 
+
 
 
 
