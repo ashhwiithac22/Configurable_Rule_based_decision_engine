@@ -3,9 +3,7 @@ from evaluation import check_condition, check_group
 
 def evaluate_single_input(data, input_id=None, description=None):
     if description:
-        print(f"\n {description}")
-    elif input_id:
-        print(f"\n Test Case #{input_id}")
+        print(f"\n{description}")
     
     print(f"Input: {data}")
     
@@ -27,7 +25,7 @@ def evaluate_single_input(data, input_id=None, description=None):
         for cond in rule['conditions']:
             if 'group' in cond:
                 matched, msg, sub = check_group(cond['group'], data)
-                results.append({'text': f"Group ({cond['group']['logic']})", 'result': matched,'details': sub
+                results.append({'text': f"Group ({cond['group']['logic']})",  'result': matched,'details': sub
                 })
             else:
                 matched, msg = check_condition(cond, data)
@@ -43,35 +41,27 @@ def evaluate_single_input(data, input_id=None, description=None):
             print(f"\nDECISION: {rule['decision']}")
             print(f"RULE: {rule['id']}")
             print("\nEXPLANATION:")
+            
 
+            conditions_met = []
             for r in results:
                 if 'details' in r:
-                    if r['result']:
-                        print(f"The {r['text']} was satisfied")
-                    else:
-                        print(f"The {r['text']} was not satisfied")
-                    
                     for sub_r in r['details']:
                         if sub_r['result']:
-                            print(f" {sub_r['text']} - This condition passed")
-                        else:
-                            print(f"{sub_r['text']} - This condition failed because {sub_r.get('msg', '')}")
+                            field = sub_r['text'].split()[0]
+                            conditions_met.append(f"{field} condition was satisfied")
                 else:
-                    field_name = r['text'].split()[0] 
                     if r['result']:
-                        print(f"{field_name} check passed - {r.get('msg', '')}")
-                    else:
-                        print(f"{field_name} check failed - {r.get('msg', '')}")
-
-            passed = sum(1 for r in results if r['result'])
-            total = len(results)
+                        field = r['text'].split()[0]
+                        conditions_met.append(f"{field} condition was satisfied")
             
-            if rule['logic'] == 'AND':
-                print(f"\nREASON: This rule requires ALL conditions to be true. {passed} out of {total} conditions were true, so the rule matched.")
-            else:
-                print(f"\nREASON: This rule requires ANY condition to be true. {passed} out of {total} conditions were true, so the rule matched.")
+            if conditions_met:
+                print("This transaction was flagged because:")
+                for condition in conditions_met:
+                    print(f"  • {condition}")
             
+            print(f"\nREASON: The transaction matched rule '{rule['id']}' which requires {rule['logic']} logic.")
             return
     
     print("\nDECISION: REJECT")
-    print("No rules matched the input")
+    print("This transaction did not match any rules.")
