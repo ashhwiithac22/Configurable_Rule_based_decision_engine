@@ -1,7 +1,5 @@
 import json
-
 def validate_rules(filename):
-    """Check if rules file is valid"""
     try:
         with open(filename, 'r') as f:
             data = json.load(f)
@@ -45,7 +43,7 @@ def validate_rules(filename):
         if not validate_conditions(rule['conditions'], rule['id'], valid_ops):
             return None
     
-    print("✓ Rules file is valid")
+    print("Rules file is valid")
     return data
 
 def validate_conditions(conditions, rule_id, valid_ops):
