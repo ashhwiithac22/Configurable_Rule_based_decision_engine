@@ -46,7 +46,7 @@ def check_condition(cond, data):
             else:
                 result = value not in target
         else:
-            return False, f"Unknown operatorerator: {operator}"
+            return False, f"Unknown operator: {operator}"
 
         if type(value) == str:
             value_msg = f"'{value}'"
@@ -77,7 +77,7 @@ def check_group(group, data):
 
         else:
             matched, msg = check_condition(cond, data)
-            results.append({'text': f"{cond['field']} {cond['operatorerator']} {cond['value']}",'result': matched,'msg': msg })
+            results.append({'text': f"{cond['field']} {cond['operator']} {cond['value']}",'result': matched,'msg': msg })
     if group['logic'] == 'AND':
         all_passed = True
         for r in results:
