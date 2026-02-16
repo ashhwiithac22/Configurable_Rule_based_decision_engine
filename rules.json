@@ -7,12 +7,12 @@
       "conditions": [
         {
           "field": "amount",
-          "op": ">",
+          "operator": ">",
           "value": 50000
         },
         {
           "field": "risk_score",
-          "op": ">",
+          "operator": ">",
           "value": 0.7
         }
       ]
@@ -24,12 +24,12 @@
       "conditions": [
         {
           "field": "vendor_type",
-          "op": "==",
+          "operator": "==",
           "value": "Trusted"
         },
         {
           "field": "amount",
-          "op": "<",
+          "operator": "<",
           "value": 200000
         }
       ]
@@ -41,12 +41,12 @@
       "conditions": [
         {
           "field": "country",
-          "op": "IN",
-          "value": ["Nigeria", "Brazil", "Indonesia", "Philippines", "Myanmar"]
+          "operator": "IN",
+          "value": ["Nigeria", "Brazil", "Indonesia", "Philippines", "Myanmar", "China"]
         },
         {
           "field": "risk_score",
-          "op": ">",
+          "operator": ">",
           "value": 0.9
         }
       ]
@@ -58,7 +58,7 @@
       "conditions": [
         {
           "field": "amount",
-          "op": ">",
+          "operator": ">",
           "value": 40000
         },
         {
@@ -67,13 +67,13 @@
             "conditions": [
               {
                 "field": "risk_score",
-                "op": ">",
+                "operator": ">",
                 "value": 0.85
               },
               {
                 "field": "country",
-                "op": "IN",
-                "value": ["Nigeria", "Brazil", "Myanmar"]
+                "operator": "IN",
+                "value": ["Nigeria", "Brazil", "Indonesia", "Philippines", "Myanmar", "China"]
               }
             ]
           }
@@ -81,23 +81,23 @@
       ]
     },
     {
-      "id": "low_risk_approve",
+      "id": "low_risk_approval",
       "decision": "APPROVE",
       "logic": "AND",
       "conditions": [
         {
           "field": "amount",
-          "op": "<=",
+          "operator": "<=",
           "value": 10000
         },
         {
           "field": "risk_score",
-          "op": "<=",
+          "operator": "<=",
           "value": 0.3
         },
         {
           "field": "vendor_type",
-          "op": "!=",
+          "operator": "!=",
           "value": "Blacklisted"
         }
       ]
@@ -109,34 +109,34 @@
       "conditions": [
         {
           "field": "amount",
-          "op": ">=",
+          "operator": ">=",
           "value": 1000000
         },
         {
           "field": "risk_score",
-          "op": ">=",
+          "operator": ">=",
           "value": 0.95
         },
         {
           "field": "vendor_type",
-          "op": "==",
+          "operator": "==",
           "value": "Blacklisted"
         }
       ]
     },
     {
-      "id": "suspicious_pattern",
+      "id": "suspicious",
       "decision": "REVIEW",
       "logic": "AND",
       "conditions": [
         {
           "field": "amount",
-          "op": ">",
+          "operator": ">",
           "value": 20000
         },
         {
           "field": "amount",
-          "op": "<",
+          "operator": "<",
           "value": 50000
         },
         {
@@ -145,38 +145,16 @@
             "conditions": [
               {
                 "field": "previous_orders",
-                "op": "<",
+                "operator": "<",
                 "value": 3
               },
               {
                 "field": "country",
-                "op": "NOT IN",
+                "operator": "NOT IN",
                 "value": ["US", "UK", "Canada", "Australia"]
               }
             ]
           }
-        }
-      ]
-    },
-    {
-      "id": "premium_customer",
-      "decision": "APPROVE",
-      "logic": "AND",
-      "conditions": [
-        {
-          "field": "customer_tier",
-          "op": "IN",
-          "value": ["Gold", "Platinum", "Diamond"]
-        },
-        {
-          "field": "amount",
-          "op": "<=",
-          "value": 500000
-        },
-        {
-          "field": "risk_score",
-          "op": "<=",
-          "value": 0.6
         }
       ]
     },
@@ -191,12 +169,12 @@
             "conditions": [
               {
                 "field": "amount",
-                "op": ">",
+                "operator": ">",
                 "value": 100000
               },
               {
                 "field": "country",
-                "op": "IN",
+                "operator": "IN",
                 "value": ["Nigeria", "Brazil", "Indonesia"]
               }
             ]
@@ -208,12 +186,12 @@
             "conditions": [
               {
                 "field": "risk_score",
-                "op": ">",
+                "operator": ">",
                 "value": 0.5
               },
               {
                 "field": "vendor_type",
-                "op": "NOT IN",
+                "operator": "NOT IN",
                 "value": ["Trusted", "Verified"]
               }
             ]
@@ -228,13 +206,13 @@
       "conditions": [
         {
           "field": "customer_age",
-          "op": "<",
+          "operator": "<",
           "value": 18
         },
         {
           "field": "customer_age",
-          "op": ">",
-          "value": 120
+          "operator": ">",
+          "value": 65
         }
       ]
     }
