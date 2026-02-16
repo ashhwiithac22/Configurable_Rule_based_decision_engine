@@ -6,7 +6,8 @@
       "amount": 75000,
       "risk_score": 0.8,
       "vendor_type": "New vendor",
-      "country": "US"
+      "country": "US",
+      "customer_age": 35
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "amount": 100000,
       "risk_score": 0.2,
       "vendor_type": "Trusted",
-      "country": "US"
+      "country": "US",
+      "customer_age": 45
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "amount": 1000,
       "risk_score": 0.1,
       "vendor_type": "New vendor",
-      "country": "US"
+      "country": "US",
+      "customer_age": 25
     },
     {
       "id": 4,
@@ -30,14 +33,34 @@
       "amount": 30000,
       "risk_score": 0.5,
       "vendor_type": "New vendor",
-      "country": "Nigeria"
+      "country": "Nigeria",
+      "customer_age": 30
     },
     {
       "id": 5,
       "description": "Missing risk score",
       "amount": 50000,
       "vendor_type": "New",
-      "country": "US"
+      "country": "US",
+      "customer_age": 40
+    },
+    {
+      "id": 6,
+      "description": "Person is less than 18 years of age - reject",
+      "amount": 500,
+      "risk_score": 0.1,
+      "vendor_type": "New",
+      "country": "US",
+      "customer_age": 16
+    },
+    {
+      "id": 7,
+      "description": "Senior citizen - reject",
+      "amount": 10000,
+      "risk_score": 0.2,
+      "vendor_type": "Trusted",
+      "country": "US",
+      "customer_age": 85
     }
   ]
 }
