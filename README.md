@@ -102,8 +102,8 @@ DECISION: REVIEW
 RULE: review_rule
 
 EXPLANATION:
-• amount condition satisfied
-• risk_score condition satisfied
+• This transaction needs manual review by human.
+• It has may have some fraudulent characteristics, that requires manual checking
 ```
 --- 
 
@@ -137,6 +137,7 @@ The engine validates the following:
 - Wrong data types
 - Invalid JSON files
 --- 
+
 
 
 
